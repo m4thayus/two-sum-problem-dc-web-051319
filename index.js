@@ -1,13 +1,21 @@
+function cleanKeys(obj) {
+    array = []
+    for (let key in obj) {
+        array.push(obj[key])
+    };
+    return array
+}
+
 function twoSum(sum, array) {
-    rtn = []
+    rtn = {}
     for (let i of array) {
         for(let j of array) {
             if (i + j === sum) {
-                rtn.push([i, j])
+                rtn[Math.abs(i - j)] = ([i, j])
             }
         }
     }
-    return rtn
+    return cleanKeys(rtn)
 }
 
 let sum = 6
